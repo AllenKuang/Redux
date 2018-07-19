@@ -12,9 +12,9 @@ export default class Counter extends Component{
         onMultiply(this.props.index,inputtext);
       }
     render(){
-        const { state, onIncrement, onDecrement ,index} = this.props;
+        const { value, onIncrement, onDecrement ,delayIncrement,index} = this.props;
         return <p>
-          Clicked: {state[index]} times
+          Clicked: {value} times
         {' '}
           <button onClick={()=>onIncrement(index)}>
             +
@@ -25,6 +25,9 @@ export default class Counter extends Component{
           <input defaultValue={0} type="text" ref={this.inputtext} />
           <button onClick={this.mutiple}>
             x
+          </button>
+          <button onClick={()=>setTimeout(()=>delayIncrement(index),1000)}>
+            Increment Async
           </button>
         </p >
         }
