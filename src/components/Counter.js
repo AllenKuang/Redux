@@ -8,23 +8,21 @@ export default class Counter extends Component{
 
       mutiple=()=>{
         const inputtext=this.inputtext.current.value//this.refs.inputtext.value;
-        //const settimes=3;
         const onMultiply=this.props.onMultiply;
-        onMultiply(inputtext);
-        //onMultiply(settimes);
+        onMultiply(this.props.index,inputtext);
       }
     render(){
-        const { state, onIncrement, onDecrement ,onMultiply} = this.props;
+        const { state, onIncrement, onDecrement ,index} = this.props;
         return <p>
-          Clicked: {state} times
+          Clicked: {state[index]} times
         {' '}
-          <button onClick={onIncrement}>
+          <button onClick={()=>onIncrement(index)}>
             +
           </button>
-          <button onClick={onDecrement}>
+          <button onClick={()=>onDecrement(index)}>
             -
           </button>
-          <input type="text" ref={this.inputtext} />
+          <input defaultValue={0} type="text" ref={this.inputtext} />
           <button onClick={this.mutiple}>
             x
           </button>

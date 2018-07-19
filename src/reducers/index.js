@@ -1,12 +1,26 @@
-export default (state = 0, action) => {
+import * as types from '../constants/ActionTypes'
+export default (state = [0,0,0], action) => {
     switch (action.type){
-        case 'INCREMENT':
-            return state + 1;
-        case 'DECREMENT':
-            return state - 1;
-        case 'MULTIPLY':
-            return state * action.multiple;
+        case types.INCREMENT:
+        {
+            const newState = [...state]
+            newState[action.index]++
+            return newState
+        }
+        case types.DECREMENT:
+        {
+            const newState = [...state]
+            newState[action.index]--
+            return newState
+        }
+        case types.MULTIPLE:
+        {
+
+            const newState = [...state]
+            newState[action.index] *= action.multiple
+            return newState
+        }
         default:
-            return state 
+            return state
     }
 }

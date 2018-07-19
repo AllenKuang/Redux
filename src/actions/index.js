@@ -1,3 +1,3 @@
-export  const  increment=()=>{return { type: 'INCREMENT' }}
+export  const  increment=(index)=>{return { type: 'INCREMENT',index }}
 
-export  const  multiplytwo=(inputmultiple)=>{return { type: 'MULTIPLY',multiple:inputmultiple }}
+export  const  multiplytwo=(index,inputmultiple)=>{return { type: 'MULTIPLE',index,multiple:inputmultiple }}

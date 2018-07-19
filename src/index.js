@@ -10,10 +10,9 @@ const rootEl = document.getElementById('root')
 const render = () => ReactDOM.render(
     <App
         state={store.getState()}
-        onIncrement={() => store.dispatch(increment())}
-        onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
-        //onMultiply={(inputmultiple) => store.dispatch({ type: 'MULTIPLY',multiple:inputmultiple })}
-        onMultiply={(inputmultiple) => store.dispatch(multiplytwo(inputmultiple))}
+        onIncrement={(index) => store.dispatch(increment(index))}
+        onDecrement={(index) => store.dispatch({ type: 'DECREMENT' ,index})}
+        onMultiply={(index,inputmultiple) => store.dispatch(multiplytwo(index,inputmultiple))}
     />,
     rootEl
 )

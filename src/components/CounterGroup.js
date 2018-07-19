@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import Counter from './Counter'
 
 export default class extends Component{
-    
     render(){
-        const { state, onIncrement, onDecrement ,onMultiply} = this.props;
+        const { state, onIncrement, onDecrement ,onMultiply,amount} = this.props;
+        let group=[];
+        for(let i=0;i<amount;i++){
+            group.push(<Counter index={i} key={i} state={state} onIncrement={onIncrement} onDecrement={onDecrement} onMultiply={onMultiply}/>)
+        }
         return <div>
-            <Counter state={state} onIncrement={onIncrement} onDecrement={onDecrement} onMultiply={onMultiply}/>
-            <Counter state={state} onIncrement={onIncrement} onDecrement={onDecrement} onMultiply={onMultiply}/>
+            {group}
         </div>
     }
 } 
